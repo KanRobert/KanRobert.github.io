@@ -7,14 +7,14 @@ tags:
   - X86
 ---
 # Reference
-1. <https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html>
-1. <https://maskray.me/blog/2021-02-14-all-about-thread-local-storage>
-1. <https://gitlab.com/x86-psABIs/x86-64-ABI>
+1. https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html
+1. https://maskray.me/blog/2021-02-14-all-about-thread-local-storage
+1. https://gitlab.com/x86-psABIs/x86-64-ABI
 
 # REX2
 Intel® APX introduces a new 2-byte REX2 prefix in order to support 32 general-purpose registers (GPRs).
 
-The **REX2** prefix is two bytes long and consists of a byte of value 0xD5 followed by a second byte containing payload bits. The payload bits `[W,R3,X3,B3]` have the same meanings as the REX payload bits `[W,R,X,B]`, except that the instructions `PUSH reg` with opcodes 0x50-0x57 and `POP reg` with opcodes 0x58-0x5F in legacy map 0 will use REX2.W to encode the `PPX` (push-pop acceleration) hint (that's another story). The payload bits `[R4,X4,B4]` provides the fifth and most significant bits of the `R`, `X` and `B` register identifiers, each of which can now address all 32 GPRs. Like the **REX** prefix, when OSIZE = 8b, the presence of the REX2 prefix makes GPR ids [4,5,6,7] address byte registers `[SPL,BPL,SIL,DIL]`, instead of `[AH,CH,DH,BH]`.
+The **REX2** prefix is two bytes long and consists of a byte of value 0xD5 followed by a second byte containing payload bits. The payload bits `[W,R3,X3,B3]` have the same meanings as the REX payload bits `[W,R,X,B]`, except that the instructions `PUSH reg` with opcodes 0x50-0x57 and `POP reg` with opcodes 0x58-0x5F in legacy map 0 will use `REX2.W` to encode the `PPX` (push-pop acceleration) hint (that's another story). The payload bits `[R4,X4,B4]` provides the fifth and most significant bits of the `R`, `X` and `B` register identifiers, each of which can now address all 32 GPRs. Like the **REX** prefix, when OSIZE = 8b, the presence of the REX2 prefix makes GPR ids [4,5,6,7] address byte registers `[SPL,BPL,SIL,DIL]`, instead of `[AH,CH,DH,BH]`.
 
 A REX2-prefixed instruction is always interpreted as an instruction in legacy map 0 or 1, with `REX2.M0` encoding the map id. REX2 does not support any instruction in legacy maps 2 and 3. Intel® APX extension of legacy instructions in maps 2 and 3 (such as CRC32 and SHA instructions) is provided by the extendedEVEX prefix.
 
