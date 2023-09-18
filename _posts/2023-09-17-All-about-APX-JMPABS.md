@@ -78,14 +78,13 @@ As we can see in [intel-optimization-manual](https://github.com/intel/optimizati
 ![gracemont microarchitecture](/rc/All-about-APX-JMPABS/gracemont-microarchitecture.png)
 
 Indirect branches are more likely to be mispredicted than direct branches, thus bringing more bad speculation.
-
 ## 2. Less-than-ideal security behavior
 It can potentially be exploited via JOP(Jump-Oriented Programming), or indirect side-channel behavior.
-
 ## 3. Less-than-ideal power consumption
 Direct branches consumes less power than indirect branches.
 
 # What does JMPABS look like?
+
 ![JMPABS](/rc/All-about-APX-JMPABS/jmpabs.png)
 
 * JMPABS is a 64-bit only ISA extension, and acts as a near-direct branch with an absolute target. The 64-bit immediate operand is treated an as absolute effective address, which is subject to canonicality
@@ -129,7 +128,7 @@ $ objdump -d libe.so
     1118:       c3                      retq
 ```
 
-To put it simple, the `R_X86_64_JUMP_SLOT` referenced by `0x2fe2(%rip)` is already filled by the address of `foo` before the before the program runs.
+To put it simple, the `R_X86_64_JUMP_SLOT` referenced by `0x2fe2(%rip)` is already filled by the address of `foo` before the program runs.
 
 **When eager binding is used and [SELinux](https://github.blog/2023-07-05-introduction-to-selinux/) is not enabled, ld.so can replace indirect `JMP *m` with JMPABS. Applications benefit from being re-loaded (with updated dynamic linker). No need to re-compile.**
 
@@ -148,8 +147,7 @@ will be rewritten to
 ```
 Since the rewrite changes the first branch instruction length from 6 to 11, so the `PUSHQ` is destroyed. But it doesn't matter b/c it's never executed when eager binding is used. Becasue Neither the `JMP *m` nor `JMPABS` changes stack pointer `RSP`, the GDB stack trace is same as before.
 
-HJ proposed the design [Add DT_X86_64_PLT/DT_X86_64_PLTSZ/DT_X86_64_PLTENT
-](https://groups.google.com/g/x86-64-abi/c/Gy0RmoP2LnE) for this optimization.
+HJ proposed the design [here](https://groups.google.com/g/x86-64-abi/c/Gy0RmoP2LnE) for this optimization.
 
 Three optional dynamic array tags are added.
 
