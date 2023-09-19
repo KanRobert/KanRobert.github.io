@@ -158,7 +158,6 @@ Without conditional compare, the assembly looks like
 $ clang -O2 -S c.c -o -
 
 bar:
-
         cmpl    $5, %edi
         je      .LBB0_3
         cmpl    $17, %esi
