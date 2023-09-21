@@ -14,21 +14,6 @@ tags:
 1. 使用using指令避免名空间的重复书写
 1. Bjarne Stroustrup对attribute的使用建议
 
-# 参考文献
-1. [Attribute Syntax - Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/Attribute-Syntax.html)
-1. [Using the GNU Compiler Collection (GCC): Common Function Attributes](https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#Common-Function-Attributes)
-1. [declspec](https://docs.microsoft.com/pl-pl/cpp/cpp/declspec)
-1. [Attributes in Clang — Clang 5 documentation](https://clang.llvm.org/docs/AttributeReference.html)
-1. [C++17 attribute](https://www.bfilipek.com/2017/07/cpp17-in-details-attributes.html)
-1. [cppreference : attribute](https://en.cppreference.com/w/cpp/language/attributes)
-1. [modern c attribute](https://arne-mertz.de/2016/12/modern-c-features-attributes/)
-1. [common attribute intro](https://kheresy.wordpress.com/2018/07/04/c-attribute)
-1. [godbolt](https://www.godbolt.org)
-1. [C++11 FAQ](http://stroustrup.com/C++11FAQ.html#attributes)
-1. [C++ Memory Order 与 Atomic 学习小记](https://zhuanlan.zhihu.com/p/31386431)
-1. [atomic/compare_exchange](https://en.cppreference.com/w/cpp/atomic/atomic/compare_exchange)
-1. [使用C++原子量实现自旋锁](https://www.cnblogs.com/FateTHarlaown/p/9170474.html)
-
 # 1. 什么是attribute?
 attribute是在基本程序代码中加入的辅助信息，编译器可以利用这些辅助信息来帮助自己CG（code generation），譬如用来优化或者产生特定代码（DLL，OpenMP等）。相比于其他语言(e.g. C#)，C++中的Meta information是由编译器决定的，你没有办法添加自己制定的attributes。而在C#中，我们可以从`System.Attribute`派生出来。
 
@@ -309,3 +294,18 @@ Consume操作通常与Release配对使用，它与Acquire操作类似，但它�
     >b. if A is the left operand of the built-in `&&, ||, ?:`, or `,` operators. 
 >2. A writes to a scalar object M, B reads from M 
 >3. A carries dependency into another evaluation X, and X carries dependency into B
+
+# 参考文献
+1. [Attribute Syntax - Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc/Attribute-Syntax.html)
+1. [Using the GNU Compiler Collection (GCC): Common Function Attributes](https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#Common-Function-Attributes)
+1. [declspec](https://docs.microsoft.com/pl-pl/cpp/cpp/declspec)
+1. [Attributes in Clang — Clang 5 documentation](https://clang.llvm.org/docs/AttributeReference.html)
+1. [C++17 attribute](https://www.bfilipek.com/2017/07/cpp17-in-details-attributes.html)
+1. [cppreference : attribute](https://en.cppreference.com/w/cpp/language/attributes)
+1. [modern c attribute](https://arne-mertz.de/2016/12/modern-c-features-attributes/)
+1. [common attribute intro](https://kheresy.wordpress.com/2018/07/04/c-attribute)
+1. [godbolt](https://www.godbolt.org)
+1. [C++11 FAQ](http://stroustrup.com/C++11FAQ.html#attributes)
+1. [C++ Memory Order 与 Atomic 学习小记](https://zhuanlan.zhihu.com/p/31386431)
+1. [atomic/compare_exchange](https://en.cppreference.com/w/cpp/atomic/atomic/compare_exchange)
+1. [使用C++原子量实现自旋锁](https://www.cnblogs.com/FateTHarlaown/p/9170474.html)

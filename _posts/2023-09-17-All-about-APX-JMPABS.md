@@ -6,11 +6,6 @@ tags:
   - APX
   - X86
 ---
-# Reference
-1. https://groups.google.com/g/x86-64-abi/c/Gy0RmoP2LnE
-1. https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html
-1. https://maskray.me/blog/2021-09-19-all-about-procedure-linkage-table
-1. https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
 
 # Why do we need JMPABS?
 JMPABS, which, as the name already suggests, allows jumping to a 64-bit absolute address. Before APX, X86 has 32-bit displacement limitations for all direct branches.
@@ -164,3 +159,9 @@ If permitted, using `DT_X86_64_PLT`, `DT_X86_64_PLTSZ` and `DT_X86_64_PLTENT` to
 glibc needs to change the PLT section to writable before rewrite and cahnge it to read-only after rewrite.
 
 [LLVM run-time dynamic linker](https://github.com/llvm/llvm-project/blob/main/llvm/lib/ExecutionEngine/RuntimeDyld/RuntimeDyldELF.cpp) may need similar change as ld.so.
+
+# Reference
+1. https://groups.google.com/g/x86-64-abi/c/Gy0RmoP2LnE
+1. https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html
+1. https://maskray.me/blog/2021-09-19-all-about-procedure-linkage-table
+1. https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html

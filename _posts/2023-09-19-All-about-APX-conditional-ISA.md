@@ -7,10 +7,6 @@ tags:
   - X86
 ---
 
-# Reference
-1. https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
-1. https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html
-
 # Motivation
 Somtimes [branch mispredictions](https://en.wikipedia.org/wiki/Branch_predictor) are a major performance limiter in workloads. The bottleneck is data-dependent conditional branches and hard to mitigate in hardware alone. Intel introduced basic conditional ISA `CMOV` with [P6](https://en.wikipedia.org/wiki/P6_(microarchitecture)) in 1996.  `CMOV`, as the name suggests, is conditional move and its operation is
 
@@ -306,3 +302,7 @@ In current design, conditional ISA is not fully utilized, so we need a better de
 ![Conditional ISA Comparison](/rc/All-about-APX-conditional-ISA/Conditional-ISA-Comparison.png)
 
 ARM has conditional simple ALU instructions e.g. CINC, CINV, CNEG.
+
+# Reference
+1. https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html
+1. https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html

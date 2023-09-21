@@ -21,17 +21,6 @@ tags:
 1. IR中的Aggregate Types
 1. `getelementptr`指令的使用
 
-# 参考文献
-1. [what is tail reursion](https://stackoverflow.com/questions/33923/what-is-tail-recursion)
-1. [make clang compile to ll](https://stackoverflow.com/questions/9148890/how-to-make-clang-compile-to-llvm-ir)
-1. [-cc1的含义](https://stackoverflow.com/questions/8991662/what-does-the-clang-cc1-option-do)
-1. [clang和clang++的区别](https://stackoverflow.com/questions/20047218/what-is-the-difference-clang-clang-std-c11)
-1. [what is a linkage unit?](https://en.wikipedia.org/wiki/Translation_unit_(programming))
-1. [LLVM LanguageRef](https://llvm.org/docs/LangRef.html)
-1. [extern "C"的作用](https://stackoverflow.com/questions/1041866/what-is-the-effect-of-extern-c-in-c)
-1. [what is name mangling](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_72/rzarg/name_mangling.htm)
-1. [what is static single assignment?](https://en.wikipedia.org/wiki/Static_single_assignment_form)
-1. [what is reaching definition?](https://en.wikipedia.org/wiki/Reaching_definition)
 
 # 1. 什么是LLVM IR？
 **LLVM IR** 是 **LLVM Intermediate Representation**，它是一种
@@ -534,3 +523,16 @@ $ opt -S --globalopt a.ll -o a-opt.ll
 ![GEP例子5](/rc/A-Tour-To-LLVM-IR/GEP-example-5.PNG)
 如果结构体的本身也有Aggregate Type的成员，就会出现超过两个索引的情况。第三个索引将会进入这个Aggregate Type成员进行索引。譬如说上图中的第二个索引是2，指针先指向第三个成员，第三个成员是个数组。再看第三个索引是0，因此指针就指向该成员的第一个元素，指针类型也变成了`i32*`。
 > 注：GEP作用于结构体时，其索引一定要是常量。GEP指令只是返回一个偏移后的指针，并没有访问内存。
+
+
+# 参考文献
+1. [what is tail reursion](https://stackoverflow.com/questions/33923/what-is-tail-recursion)
+1. [make clang compile to ll](https://stackoverflow.com/questions/9148890/how-to-make-clang-compile-to-llvm-ir)
+1. [-cc1的含义](https://stackoverflow.com/questions/8991662/what-does-the-clang-cc1-option-do)
+1. [clang和clang++的区别](https://stackoverflow.com/questions/20047218/what-is-the-difference-clang-clang-std-c11)
+1. [what is a linkage unit?](https://en.wikipedia.org/wiki/Translation_unit_(programming))
+1. [LLVM LanguageRef](https://llvm.org/docs/LangRef.html)
+1. [extern "C"的作用](https://stackoverflow.com/questions/1041866/what-is-the-effect-of-extern-c-in-c)
+1. [what is name mangling](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_72/rzarg/name_mangling.htm)
+1. [what is static single assignment?](https://en.wikipedia.org/wiki/Static_single_assignment_form)
+1. [what is reaching definition?](https://en.wikipedia.org/wiki/Reaching_definition)

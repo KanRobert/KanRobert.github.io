@@ -6,10 +6,6 @@ tags:
   - APX
   - X86
 ---
-# Reference
-1. https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html
-1. https://maskray.me/blog/2021-02-14-all-about-thread-local-storage
-1. https://gitlab.com/x86-psABIs/x86-64-ABI
 
 # REX2
 Intel® APX introduces a new 2-byte REX2 prefix in order to support 32 general-purpose registers (GPRs).
@@ -143,3 +139,8 @@ For APX, we add
 ```
 
 for instruction starts at 4 bytes before the relocation offset. This should be used if reg is one of the additional general-purpose registers, r16-r31, in Intel APX. It is similar to `R_X86_64_GOTPC32_TLSDESC` and linker optimization must take the different instruction encoding into account.
+
+# Reference
+1. https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html
+1. https://maskray.me/blog/2021-02-14-all-about-thread-local-storage
+1. https://gitlab.com/x86-psABIs/x86-64-ABI

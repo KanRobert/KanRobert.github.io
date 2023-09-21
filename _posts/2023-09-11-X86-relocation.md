@@ -7,13 +7,6 @@ tags:
   - ABI
 ---
 
-# Reference
-1. https://maskray.me/blog/2021-08-29-all-about-global-offset-table
-1. https://maskray.me/blog/2021-09-19-all-about-procedure-linkage-table
-1. https://www.technovelty.org/linux/plt-and-got-the-key-to-code-sharing-and-dynamic-libraries.html
-1. https://gitlab.com/x86-psABIs/x86-64-ABI
-1. https://stackoverflow.com/questions/6093547/what-do-r-x86-64-32s-and-r-x86-64-64-relocation-mean
-
 # What's relocation
 Relocations are entries in binaries that are left to be filled later -- at link time by the toolchain linker or at runtime by the dynamic linker. A relocation in a binary is a descriptor which essentially says "determine the value of `X`, and put that value into the binary at offset `Y`" — each relocation has a specific type, defined in the ABI documentation, which describes exactly how "determine the value of" is actually determined.
 
@@ -399,3 +392,10 @@ addr32 callq func
 jmpq    func
 nop
 ```
+
+# Reference
+1. https://maskray.me/blog/2021-08-29-all-about-global-offset-table
+1. https://maskray.me/blog/2021-09-19-all-about-procedure-linkage-table
+1. https://www.technovelty.org/linux/plt-and-got-the-key-to-code-sharing-and-dynamic-libraries.html
+1. https://gitlab.com/x86-psABIs/x86-64-ABI
+1. https://stackoverflow.com/questions/6093547/what-do-r-x86-64-32s-and-r-x86-64-64-relocation-mean
