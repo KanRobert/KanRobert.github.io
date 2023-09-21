@@ -168,7 +168,7 @@ bar:
         jmp     foo                             # TAILCALL
 ```
 
-If conditional load/store is available, we can generate code like
+If conditional compare is available, we can generate code like
 
 ```
 bar:
@@ -223,7 +223,7 @@ The `ccmp` condition code is the one that would cause the `Head` terminator to b
 
 The probabilities of edges needs to updated after the CFG transformation. Assuming the `Header` that merges `CmpBB` is called`NewHeader`, the other successor of `CmpBB` is called `I`, then
 
-* `P(Tail|NewHeader) += P(CmpBB|Head) * P(Tail|CmpBB)`
+* `P(Tail|NewHeader) = P(Tail|Header) + P(CmpBB|Head) * P(Tail|CmpBB)`
 * `P(I|NewHeader) = P(CmpBB|Head) * P(I|CmpBB)`
 
 where `P(X|Y)` means probability from `Y` to `X`.  This is obvious based on the law of total probability, so we won’t go into details.
